@@ -1,9 +1,11 @@
 <script>
 import AboutAccordion from "../components/AboutAccordion.vue";
+import Navbar from "../components/Navbar.vue";
 
 export default {
   components: {
     AboutAccordion,
+    Navbar,
   },
   data() {
     return {
@@ -34,12 +36,7 @@ export default {
 
 <template>
   <div class="container py-4">
-    <b-nav pills class="pb-3 mb-4 border-bottom">
-      <b-nav-item to="/">Home</b-nav-item>
-      <b-nav-item to="/hot">Hot</b-nav-item>
-      <b-nav-item to="/about">About</b-nav-item>
-      <b-nav-item to="/archive">Archive</b-nav-item>
-    </b-nav>
+    <navbar></navbar>
     <h1>About Us</h1>
 
     <!-- Accordion with Descriptions -->

@@ -1,13 +1,19 @@
+<script>
+import Navbar from "../components/Navbar.vue";
+
+export default {
+  name: "IndexPage",
+  components: {
+    Navbar,
+  },
+};
+</script>
+
+
 <template>
   <div>
     <div class="container py-4">
-      <b-nav pills class="pb-3 mb-4 border-bottom">
-        <b-nav-item to="/">Home</b-nav-item>
-        <b-nav-item to="/hot">Hot</b-nav-item>
-        <b-nav-item to="/about">About</b-nav-item>
-        <b-nav-item to="/archive">Archive</b-nav-item>
-      </b-nav>
-
+      <navbar></navbar>
       <!-- Create Jumbotron -->
       <div class="p-5 mb-4 bg-light rounded-3">
         <div class="container-fluid py-5">
@@ -65,8 +71,3 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "IndexPage",
-};
-</script>

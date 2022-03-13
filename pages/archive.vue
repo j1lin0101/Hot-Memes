@@ -1,61 +1,12 @@
-<template>
-  <div class="container py-4">
-    <b-nav pills class="pb-3 mb-4 border-bottom">
-      <b-nav-item to="/">Home</b-nav-item>
-      <b-nav-item to="/hot">Hot</b-nav-item>
-      <b-nav-item to="/about">About</b-nav-item>
-      <b-nav-item to="/archive">Archive</b-nav-item>
-    </b-nav>
-    <h1>Legendary Memes from a Simpler Time</h1>
-    <img src="/assets/logo.png" alt="" />
-    <div class="container">
-      <div class="row">
-        <div class="col col-lg-12">
-          <h2>Memes Sorted By Year Popularized</h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col col-lg-12">
-          <h3>2010</h3>
-        </div>
-      </div>
-
-      <div
-        class="row g-2 g-lg-3"
-        v-for="meme in archiveMemes"
-        v-bind:meme="meme"
-        v-bind:key="meme.id"
-      >
-        <div class="col col-sm-12 col-md-6 col-lg-4">
-          <img
-            v-bind:src="meme.image"
-            class="d-block w-50 img-fluid mx-auto"
-            v-if="meme.show"
-          />
-        </div>
-
-        <div class="col col-sm-12 col-md-6 col-lg-8">
-          <h4>{{ meme.title }}</h4>
-          <p>
-            {{ meme.description }}
-          </p>
-          <p>
-            Source:
-            <a :href="meme.source">KnowYourMeme</a>
-          </p>
-          <p>
-            <button v-on:click="meme.show = !meme.show">Show the Meme!</button>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
+import Navbar from "../components/Navbar.vue";
+import ArchiveMeme from "../components/ArchiveMeme.vue";
 export default {
   name: "ArchiveView",
+  components: {
+    Navbar,
+    ArchiveMeme,
+  },
   data() {
     return {
       archiveMemes: [
@@ -92,3 +43,37 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="container py-4">
+    <navbar></navbar>
+    <h1>Legendary Memes from a Simpler Time</h1>
+    <img src="/assets/logo.png" alt="" />
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-12">
+          <h2>Memes Sorted By Year Popularized</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col col-lg-12">
+          <h3>2010</h3>
+        </div>
+      </div>
+
+      <archive-meme
+        v-for="meme in archiveMemes"
+        v-bind:meme="meme"
+        v-bind:key="meme.id"
+        v-bind:memeTitle="meme.title"
+        v-bind:memeSrc="meme.image"
+        v-bind:memeDesc="meme.description"
+        v-bind:memeSource="meme.source"
+        v-bind:show="meme.show"
+      ></archive-meme>
+    </div>
+  </div>
+</template>
+
+
