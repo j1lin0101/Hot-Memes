@@ -12,21 +12,21 @@ export default {
       images: [
         {
           id: 1,
-          src: "~/assets/images/ceo.jpg",
+          src: "images/ceo.jpg",
           title: "CEO Meme",
           alt: "A meme with various popular CEOs",
           description: "A meme with various popular CEOs",
         },
         {
           id: 2,
-          src: "~/assets/images/2010/knee.jpeg",
+          src: "images/2010/knee.jpeg",
           title: "Arrow to the Knee",
           alt: "A classic meme of taking an arrow to the knee",
           description: "A classic meme of taking an arrow to the knee",
         },
         {
           id: 3,
-          src: "~/assets/images/2010/morpheus.jpeg",
+          src: "images/2010/morpheus.jpeg",
           title: "Morpheus",
           alt: "A classic meme of the Matrix's Morpheus",
           description: "A classic meme of the Matrix's Morpheus",
