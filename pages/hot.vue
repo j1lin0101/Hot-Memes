@@ -1,6 +1,7 @@
 <script>
 import HotImage from "../components/HotImage.vue";
 import Navbar from "../components/Navbar.vue";
+import axios from "axios";
 
 export default {
   name: "HotView",
@@ -10,31 +11,24 @@ export default {
   },
   data() {
     return {
-      // Image Data - Title, Description, Image, URL
-      images: [
-        {
-          id: 1,
-          src: "images/ceo.jpg",
-          title: "CEO Meme",
-          alt: "A meme with various popular CEOs",
-          description: "A meme with various popular CEOs",
-        },
-        {
-          id: 2,
-          src: "images/2010/knee.jpeg",
-          title: "Arrow to the Knee",
-          alt: "A classic meme of taking an arrow to the knee",
-          description: "A classic meme of taking an arrow to the knee",
-        },
-        {
-          id: 3,
-          src: "images/2010/morpheus.jpeg",
-          title: "Morpheus",
-          alt: "A classic meme of the Matrix's Morpheus",
-          description: "A classic meme of the Matrix's Morpheus",
-        },
-      ],
+      loading: true,
+      images: null,
+      errored: false,
     };
+  },
+  //Get Memes Via Meme Api
+  mounted() {
+    axios
+      .get("https://meme-api.herokuapp.com/gimme/memes/4")
+      .then((response) => {
+        console.log(response.data);
+        this.images = response.data["memes"];
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
   },
 };
 </script>
@@ -50,11 +44,13 @@ export default {
       <hot-image
         v-for="image in images"
         v-bind:image="image"
-        v-bind:key="image.id"
+        v-bind:key="image.postLink"
         v-bind:imageTitle="image.title"
-        v-bind:imageSrc="image.src"
-        v-bind:imageAlt="image.alt"
-        v-bind:imageDescription="image.description"
+        v-bind:imageSrc="image.url"
+        v-bind:imageAlt="'From r/' + image.subreddit"
+        v-bind:imageDescription="
+          'Made by: ' + image.author + 'on r/' + image.subreddit
+        "
       >
       </hot-image>
     </div>
