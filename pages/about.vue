@@ -30,6 +30,17 @@ export default {
       ],
     };
   },
+  head() {
+    return {
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Learn about the Hot Meme website",
+        },
+      ],
+    };
+  },
 };
 </script>
 

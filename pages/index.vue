@@ -6,6 +6,17 @@ export default {
   components: {
     Navbar,
   },
+  head() {
+    return {
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Welcome to the Hottest Meme Website on the Internetn",
+        },
+      ],
+    };
+  },
 };
 </script>
 

@@ -41,6 +41,17 @@ export default {
       ],
     };
   },
+  head() {
+    return {
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Take a look into the past of meme history",
+        },
+      ],
+    };
+  },
 };
 </script>
 

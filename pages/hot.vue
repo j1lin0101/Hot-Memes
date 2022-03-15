@@ -16,6 +16,17 @@ export default {
       errored: false,
     };
   },
+  head() {
+    return {
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "View the Hottest Memes on This Page",
+        },
+      ],
+    };
+  },
   //Get Memes Via Meme Api
   mounted() {
     axios
